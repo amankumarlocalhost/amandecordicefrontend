@@ -6,11 +6,12 @@ import { tryPublic } from "@/lib/api/server";
 
 export const metadata = {
   title: "Collections",
-  description: "Gift collections, festive edits and curated sets for weddings, housewarmings and beautiful tables.",
+  description: "Shop by space, curated home décor edits and gift collections for beautiful living.",
 };
 
 const TYPES = [
   { value: "", label: "All" },
+  { value: "space", label: "Shop by Space" },
   { value: "gift", label: "Gifting" },
   { value: "festival", label: "Festive" },
   { value: "curated", label: "Curated" },

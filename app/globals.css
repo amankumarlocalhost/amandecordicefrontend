@@ -1,29 +1,31 @@
 @import "tailwindcss";
 
-/* Design tokens taken from the reference landing page: deep olive green, warm cream and ivory
-   surfaces, a high-contrast serif for display type and a tracked geometric sans for UI. */
+/* Design tokens — home décor palette: warm ivory and linen surfaces, charcoal ink, a terracotta
+   accent and a soft sage. Token names are unchanged (olive-* = deep surfaces, gold = accent) so every
+   component picks up the palette without code changes. */
 :root {
-  --olive-950: #232a1e;
-  --olive-900: #2d3527;
-  --olive-800: #3a4432;
-  --olive-700: #4c5841;
-  --cream-50: #fcfaf6;
-  --cream-100: #f7f3ec;
-  --cream-200: #efe8dc;
-  --cream-300: #e3d9c8;
-  --ink: #26261f;
-  --ink-soft: #4a4a40;
-  --muted: #6a685d;
-  --line: #e2dacb;
-  --gold: #b48b4f;
-  --gold-soft: #d9bf8f;
-  --gold-ink: #8a6630; /* gold for text on light surfaces (WCAG AA) */
+  --olive-950: #211e1c; /* deep warm charcoal (overlays, footer) */
+  --olive-900: #2b2725;
+  --olive-800: #3d3834;
+  --olive-700: #57504a;
+  --cream-50: #fcfbf8;
+  --cream-100: #f8f6f1; /* primary background */
+  --cream-200: #eee8dd; /* secondary background */
+  --cream-300: #e2d8c8;
+  --ink: #252525; /* primary text */
+  --ink-soft: #4d4945;
+  --muted: #77736d; /* secondary text */
+  --line: #e4ddd1;
+  --gold: #b77b60; /* terracotta accent */
+  --gold-soft: #dcb7a4;
+  --gold-ink: #985c43; /* accent for text on light surfaces (WCAG AA) */
+  --sage: #8a947d; /* optional accent */
   --danger: #a2402e;
-  --success: #4f6b3a;
+  --success: #5f6d52;
   --warn: #9a6b1f;
 
   --shadow-card: 0 1px 2px rgb(38 38 31 / 0.04), 0 8px 24px -12px rgb(38 38 31 / 0.18);
-  --shadow-pop: 0 18px 50px -12px rgb(35 42 30 / 0.35);
+  --shadow-pop: 0 18px 50px -12px rgb(33 30 28 / 0.32);
   color-scheme: light;
 }
 
@@ -43,6 +45,7 @@
   --color-gold: var(--gold);
   --color-gold-soft: var(--gold-soft);
   --color-gold-ink: var(--gold-ink);
+  --color-sage: var(--sage);
   --color-danger: var(--danger);
   --color-success: var(--success);
   --color-warn: var(--warn);
@@ -57,6 +60,13 @@
 html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
+}
+
+/* Safety net: decorative overflow (e.g. a scaled hover image) must never make the page scroll
+   sideways on phones. `clip` (unlike `hidden`) keeps position: sticky working. */
+html,
+body {
+  overflow-x: clip;
 }
 
 body {
@@ -124,6 +134,13 @@ body {
     transition: background-color 0.25s var(--ease-lux), color 0.25s var(--ease-lux), border-color 0.25s var(--ease-lux), transform 0.15s;
     cursor: pointer;
     white-space: nowrap;
+  }
+  /* Phones: slightly tighter buttons so two fit side by side on a 320–375px screen. */
+  @media (max-width: 639px) {
+    .btn {
+      padding-inline: 1rem;
+      letter-spacing: 0.14em;
+    }
   }
   .btn:active:not(:disabled) {
     transform: translateY(1px);
@@ -213,6 +230,12 @@ body {
     font-size: 0.95rem;
     color: var(--ink);
     transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  /* Below 16px, iOS Safari zooms the page when a field is focused. */
+  @media (max-width: 639px) {
+    .input {
+      font-size: 1rem;
+    }
   }
   .input:focus {
     outline: none;

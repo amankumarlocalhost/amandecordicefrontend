@@ -35,7 +35,7 @@ const DEFAULT_COLUMNS = [
   { title: "Help", links: FOOTER_HELP },
   { title: "About", links: FOOTER_ABOUT },
 ];
-const DEFAULT_ABOUT = "Premium ceramics, glassware and tableware, packed with care for every journey and chosen to bring beauty to your everyday moments.";
+const DEFAULT_ABOUT = "Premium home décor and home living pieces, packed with care for every journey and chosen to bring beauty to your everyday moments.";
 const GRID = { 2: "lg:grid-cols-[1.4fr_repeat(2,1fr)]", 3: "lg:grid-cols-[1.4fr_repeat(3,1fr)]", 4: "lg:grid-cols-[1.4fr_repeat(4,1fr)]", 5: "lg:grid-cols-[1.4fr_repeat(5,1fr)]" };
 
 /** `content` is the published CMS footer (or null); every part falls back to the built-in footer. */

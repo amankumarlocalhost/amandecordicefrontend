@@ -41,11 +41,14 @@ export default function ProductCard({ product, sizes = "(min-width:1280px) 22vw,
             type="button"
             onClick={() => addItem(p.defaultSku, 1)}
             disabled={busy}
-            className="btn btn-light absolute inset-x-2.5 bottom-2.5 min-h-10 translate-y-0 opacity-100 shadow-[var(--shadow-card)] focus:translate-y-0 focus:opacity-100 md:translate-y-3 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100"
+            className="btn btn-light absolute inset-x-2 bottom-2 min-h-10 sm:inset-x-2.5 sm:bottom-2.5 translate-y-0 opacity-100 shadow-[var(--shadow-card)] focus:translate-y-0 focus:opacity-100 md:translate-y-3 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100"
             style={{ transitionProperty: "opacity, transform, background-color", transitionDuration: "350ms" }}
             aria-label={`Add to bag: ${p.name}`}
           >
-            {busy ? <Spinner size={14} /> : <Icon name="bag" size={15} />} Add to bag
+            {busy ? <Spinner size={14} /> : <Icon name="bag" size={15} />}
+            {/* Narrow 2-column phone cards fit only a short label. */}
+            <span className="sm:hidden">Add</span>
+            <span className="hidden sm:inline">Add to bag</span>
           </button>
         ) : null}
       </div>

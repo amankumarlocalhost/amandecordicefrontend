@@ -19,14 +19,14 @@ const accent = Pinyon_Script({ subsets: ["latin"], weight: "400", variable: "--f
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
-  title: { default: `${STORE_NAME} — Premium Crockery, Glassware & Tableware`, template: `%s · ${STORE_NAME}` },
-  description: "Handcrafted ceramics, fine dinnerware, glassware, serveware and home decor for beautiful everyday dining. UPI and Cash on Delivery across India.",
+  title: { default: `${STORE_NAME} — Premium Home Décor & Home Living`, template: `%s · ${STORE_NAME}` },
+  description: "Thoughtfully curated home décor — vases, wall décor, candle stands, planters, photo frames and more — to make every corner beautiful. UPI and Cash on Delivery across India.",
   applicationName: STORE_NAME,
   openGraph: { siteName: STORE_NAME, type: "website", locale: "en_IN", description: STORE_TAGLINE },
 };
 
 export const viewport = {
-  themeColor: "#2d3527",
+  themeColor: "#252525",
   width: "device-width",
   initialScale: 1,
 };

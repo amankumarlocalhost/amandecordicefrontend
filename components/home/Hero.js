@@ -4,10 +4,10 @@ import { PHOTOS, unsplash } from "@/lib/images";
 import { cmsImage } from "@/lib/cms";
 
 const DEFAULTS = {
-  heading: "The Art\nof Beautiful\nDining",
-  subheading: "Handcrafted ceramics that bring beauty to everyday meals and special moments.",
-  primaryCta: { label: "Shop collections", href: "/collections" },
-  secondaryCta: { label: "Explore new in", href: "/shop?newArrival=true&sort=newest" },
+  heading: "Make Every\nCorner\nBeautiful.",
+  subheading: "Discover thoughtfully curated home décor pieces that bring elegance, warmth and personality to every space.",
+  primaryCta: { label: "Explore Collection", href: "/#shop-by-category" },
+  secondaryCta: { label: "Shop Now", href: "/shop" },
 };
 
 /**
@@ -36,7 +36,7 @@ export default function Hero({ content = null }) {
                 </span>
               ))}
             </h1>
-            {c.subheading ? <p className="mt-6 max-w-[19rem] text-[0.95rem] leading-relaxed text-ink-soft">{c.subheading}</p> : null}
+            {c.subheading ? <p className="mt-6 max-w-[23rem] text-[0.95rem] leading-relaxed text-ink-soft">{c.subheading}</p> : null}
             <div className="mt-8 flex flex-wrap gap-3">
               {c.primaryCta?.href ? <Link href={c.primaryCta.href} className="btn btn-primary">{c.primaryCta.label}</Link> : null}
               {c.secondaryCta?.href ? <Link href={c.secondaryCta.href} className="btn btn-outline bg-cream-50/40 backdrop-blur-[2px]">{c.secondaryCta.label}</Link> : null}

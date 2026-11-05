@@ -75,7 +75,7 @@ export default async function ProductListing({ filters, base = {}, basePath, asi
           <ErrorState title="We couldn't load products" message={error?.status === 400 ? "Some filters aren't valid. Try clearing them." : "Please refresh the page in a moment."} />
         ) : !products.data.length ? (
           <EmptyState icon="search" title={filters.q ? `No results for “${filters.q}”` : chips.length ? "Nothing matches these filters" : "New pieces arriving soon"} action={chips.length ? <Link href={`${basePath}${toSearch(filters.q ? { q: filters.q } : {})}`} className="btn btn-outline">Clear filters</Link> : <Link href="/shop" className="btn btn-primary">Browse all products</Link>}>
-            {filters.q ? "Try a broader term like “plates”, “glass” or “vase”, or check the spelling." : chips.length ? "Try removing a filter or two." : "There's nothing here just yet — explore the rest of the collection in the meantime."}
+            {filters.q ? "Try a broader term like “vase”, “candle” or “frame”, or check the spelling." : chips.length ? "Try removing a filter or two." : "There's nothing here just yet — explore the rest of the collection in the meantime."}
           </EmptyState>
         ) : (
           <>

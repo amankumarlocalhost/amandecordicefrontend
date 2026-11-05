@@ -46,9 +46,9 @@ export function Inspiration({ content = null }) {
           <Sprig className="pointer-events-none absolute -top-4 -right-6 h-56 w-44 text-olive-700/25" />
           <div data-reveal className="relative max-w-md">
             <h2 id="inspiration-title" className="font-display text-[2.4rem] leading-[1.08] sm:text-5xl">
-              <Lines text={c.heading || "Inspiration\nFor Every Table"} />
+              <Lines text={c.heading || "Home Styling\nInspiration"} />
             </h2>
-            <p className="mt-5 text-sm leading-relaxed text-ink-soft">{c.body || "From cozy breakfasts to festive dinners, find pieces that make every moment memorable."}</p>
+            <p className="mt-5 text-sm leading-relaxed text-ink-soft">{c.body || "Layer textures, mix materials and let a few beautiful pieces set the mood — ideas for every room in your home."}</p>
             <Link href={c.cta?.href || "/collections"} className="btn btn-primary mt-7">
               {c.cta?.label || "Explore lookbook"} <Icon name="arrowRight" size={15} />
             </Link>
@@ -68,7 +68,7 @@ export function Inspiration({ content = null }) {
 
 const WHY = [
   { icon: "leaf", title: "Thoughtful Design", text: "Timeless pieces that never go out of style." },
-  { icon: "diamond", title: "Premium Materials", text: "Bone china, stoneware, porcelain and fine glass, described exactly as they are." },
+  { icon: "diamond", title: "Premium Materials", text: "Brass, marble, mango wood, ceramic and glass, described exactly as they are." },
   { icon: "box", title: "Packed for Fragile Journeys", text: "Multi-layer protective packing, and quick help if anything arrives damaged." },
   { icon: "users", title: "Honest Reviews", text: "Ratings come only from verified buyers — never invented." },
 ];
@@ -124,7 +124,7 @@ export function Gallery({ content = null, social = null }) {
     <section className="bg-olive-900 py-10 text-cream-50 sm:py-12" aria-labelledby="gallery-title">
       <div className="container-lux">
         <h2 id="gallery-title" className="font-display mb-6 text-center text-2xl sm:text-[1.7rem]">
-          {c.heading || (handle ? `Follow @${handle.replace(/^@/, "")} for daily inspiration` : "Set beautifully, every day")}
+          {c.heading || (handle ? `Follow @${handle.replace(/^@/, "")} for daily inspiration` : "Little details. Beautiful homes.")}
         </h2>
         <ul className="no-scrollbar -mx-4 flex snap-x gap-3 overflow-x-auto px-4 sm:mx-0 sm:grid sm:grid-cols-6 sm:px-0">
           {images.map((p, i) => (

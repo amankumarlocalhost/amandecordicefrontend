@@ -8,6 +8,7 @@ import { Gallery, Inspiration, WhyChoose } from "@/components/home/Editorial";
 import GiftCollections from "@/components/home/GiftCollections";
 import Testimonials from "@/components/home/Testimonials";
 import Newsletter from "@/components/home/Newsletter";
+import { GridSectionSkeleton, ShopByCategory, ShopBySpace, TrendingProducts } from "@/components/home/DecorSections";
 import { STORE_NAME } from "@/lib/config";
 import { sectionOrder } from "@/lib/cms";
 
@@ -55,6 +56,21 @@ export default function HomeSections({ content = null, footer = null }) {
     ),
     gallery: () => <Gallery content={c.gallery} social={footer?.social} />,
     newsletter: () => <Newsletter content={c.newsletter} />,
+    shopByCategory: () => (
+      <Suspense fallback={<GridSectionSkeleton title={c.shopByCategory?.title || "Shop by Category"} />}>
+        <ShopByCategory content={c.shopByCategory} />
+      </Suspense>
+    ),
+    spaces: () => (
+      <Suspense fallback={null}>
+        <ShopBySpace content={c.spaces} />
+      </Suspense>
+    ),
+    trending: () => (
+      <Suspense fallback={null}>
+        <TrendingProducts content={c.trending} />
+      </Suspense>
+    ),
   };
   return (
     <>

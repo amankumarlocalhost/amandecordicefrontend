@@ -59,12 +59,12 @@ export default async function PromoBanner({ content = null }) {
   return (
     <Shell
       script={c.script || "Gifted"}
-      title={c.title || "Table Stories"}
+      title={c.title || "Bring Your Home to Life"}
       href={c.cta?.href || "/collections?type=gift"}
       cta={c.cta?.label || "Explore gifting"}
       image={<Photo src={img.src} alt={img.alt} sizes="(min-width:1024px) 64vw, 100vw" />}
     >
-      <p>{c.body || "Hand-painted serveware, fine dinner sets and glassware, curated into gift collections for weddings, housewarmings and festive tables."}</p>
+      <p>{c.body || "Sculptural vases, statement wall décor and warm candlelight — pieces chosen to give every room its own personality."}</p>
       <p className="mt-4 text-[0.7rem] tracking-[0.2em] text-gold-soft uppercase">{c.note || "Gift wrap available at checkout"}</p>
     </Shell>
   );

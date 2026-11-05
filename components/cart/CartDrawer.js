@@ -58,7 +58,7 @@ export default function CartDrawer({ onClose }) {
         </EmptyState>
       ) : !lines.length ? (
         <EmptyState title="Your bag is empty" action={<Link href="/shop" onClick={onClose} className="btn btn-primary">Explore the collection</Link>}>
-          Discover dinnerware, glassware and serveware made for beautiful tables.
+          Discover vases, wall décor, candle stands and accents that make every corner beautiful.
         </EmptyState>
       ) : (
         <>

@@ -264,10 +264,11 @@ export default function ProductHero({ product }) {
           </div>
         ) : (
           <div className="mt-5 space-y-3">
-            <div className="flex gap-3">
+            {/* min-w-0 lets the button shrink instead of pushing the row wider than small phones. */}
+            <div className="flex gap-2 sm:gap-3">
               <QtyStepper value={qty} min={1} max={maxQty} onChange={setQty} label="Quantity" />
-              <button type="button" className="btn btn-primary flex-1" onClick={() => add(false)} disabled={busy}>
-                {busy ? <Spinner size={16} /> : <Icon name="bag" size={16} />} Add to bag
+              <button type="button" className="btn btn-primary min-w-0 flex-1" onClick={() => add(false)} disabled={busy}>
+                {busy ? <Spinner size={16} /> : <Icon name="bag" size={16} className="max-[379px]:hidden" />} Add to bag
               </button>
               <button type="button" onClick={() => wishlist.toggle(p.id, v.sku)} className={`btn btn-outline px-3.5 ${saved ? "text-danger" : ""}`} aria-pressed={saved} aria-label={saved ? "Remove from wishlist" : "Save to wishlist"}>
                 <Icon name="heart" size={18} filled={saved} />

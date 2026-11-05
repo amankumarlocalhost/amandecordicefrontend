@@ -85,6 +85,8 @@ function Care() {
       <Section title="Fine china and metallic rims"><p>Pieces with gold or platinum rims should not go in the microwave. Hand wash them with a soft sponge and mild detergent.</p></Section>
       <Section title="Glassware"><p>Avoid sudden temperature changes — don&apos;t pour boiling liquids into cold glass, or rinse hot glass in cold water. Borosilicate glass is more resistant to thermal shock than regular glass.</p></Section>
       <Section title="Stoneware & handmade ceramics"><p>Reactive glazes vary naturally from piece to piece. Let pieces cool before washing and avoid abrasive scrubbers to protect the glaze.</p></Section>
+      <Section title="Brass, metal & wood décor"><p>Dust brass and metal with a soft dry cloth; brass naturally develops a warm patina, and a little polish restores its shine. Keep wood away from direct sun and moisture — grain and tone vary naturally from piece to piece.</p></Section>
+      <Section title="Marble, terracotta & natural fibres"><p>Wipe marble with a damp cloth and avoid acidic cleaners. Terracotta is porous, so use a saucer under planted pots. Brush rattan, jute and seagrass gently and keep them dry.</p></Section>
     </>
   );
 }
