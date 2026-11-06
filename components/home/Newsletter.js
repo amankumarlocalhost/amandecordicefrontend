@@ -9,6 +9,7 @@ import { useAuth } from "@/components/providers/AuthProvider";
 import { useToast } from "@/components/ui/Toast";
 import { userApi } from "@/lib/api/endpoints";
 import { PHOTOS, unsplash } from "@/lib/images";
+import { cmsImage } from "@/lib/cms";
 
 /**
  * The backend has no standalone newsletter list; updates are sent to customers who opt in to
@@ -43,12 +44,18 @@ export default function Newsletter({ content = null }) {
 
   return (
     <section className="relative overflow-hidden border-t border-line bg-cream-100" aria-labelledby="newsletter-title">
-      <div className="container-lux flex flex-col items-center gap-6 py-10 sm:flex-row sm:gap-10">
+      <div className="container-lux flex flex-col items-center gap-6 py-12 sm:flex-row sm:gap-10 sm:py-14">
         <div className="relative hidden h-20 w-28 shrink-0 overflow-hidden rounded-full sm:block">
-          <Image src={unsplash(PHOTOS.newsletter.src, 300)} alt="" fill sizes="112px" className="object-cover" />
+          <Image src={cmsImage(content?.image, { src: unsplash(PHOTOS.newsletter.src, 300), alt: "" }, { size: "thumb" }).src} alt="" fill sizes="112px" className="object-cover" />
         </div>
         <div className="text-center sm:text-left">
-          <h2 id="newsletter-title" className="font-display text-[1.9rem] leading-tight">{content?.heading || "Let’s Stay in Touch"}</h2>
+          <h2 id="newsletter-title" className="font-display text-[2rem] leading-tight sm:text-[2.3rem]">
+            {content?.heading || (
+              <>
+                Let’s Stay <span className="display-italic text-gold-ink">in Touch</span>
+              </>
+            )}
+          </h2>
           <p className="mt-1 text-[0.8rem] text-muted">{content?.body || "Sign up for updates, new launches and exclusive offers."}</p>
         </div>
         {isAuthed && optedIn ? (

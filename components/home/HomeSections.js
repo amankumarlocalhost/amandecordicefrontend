@@ -22,8 +22,8 @@ export default function HomeSections({ content = null, footer = null }) {
   const render = {
     hero: () => <Hero content={c.hero} />,
     features: () => (
-      <Suspense fallback={<FeatureStripView settings={null} />}>
-        <FeatureStrip />
+      <Suspense fallback={<FeatureStripView settings={null} content={c.features} />}>
+        <FeatureStrip content={c.features} />
       </Suspense>
     ),
     categories: () => <CategoryCards content={c.categoryCards} />,

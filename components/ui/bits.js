@@ -157,10 +157,10 @@ export function Breadcrumbs({ items }) {
 
 export function SectionHeading({ title, action, eyebrow, className = "" }) {
   return (
-    <div className={`mb-6 flex items-end justify-between gap-4 sm:mb-8 ${className}`}>
+    <div className={`mb-7 flex items-end justify-between gap-4 sm:mb-10 ${className}`}>
       <div>
-        {eyebrow ? <p className="eyebrow mb-2 text-gold-ink">{eyebrow}</p> : null}
-        <h2 className="font-display text-3xl leading-tight sm:text-[2.35rem]">{title}</h2>
+        {eyebrow ? <p className="eyebrow eyebrow-rule mb-3 text-gold-ink">{eyebrow}</p> : null}
+        <h2 className="font-display text-[2rem] leading-[1.08] sm:text-[2.6rem]">{title}</h2>
       </div>
       {action}
     </div>

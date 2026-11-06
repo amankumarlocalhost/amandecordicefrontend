@@ -10,15 +10,16 @@ function Shell({ script, title, children, href, cta, image }) {
   return (
     <section className="bg-olive-950 text-cream-50" aria-label={`${script} ${title}`}>
       <div className="grid lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.5fr)]">
-        <div className="flex flex-col justify-center px-6 py-12 sm:px-12 lg:py-16 lg:pl-[max(2.5rem,calc((100vw-1320px)/2+2.5rem))]">
+        <div className="flex flex-col justify-center px-6 py-14 sm:px-12 lg:py-20 lg:pl-[max(2.5rem,calc((100vw-1320px)/2+2.5rem))]">
           <p className="font-script text-5xl leading-none text-gold-soft sm:text-6xl">{script}</p>
-          <h2 className="font-display mt-1 text-[2.4rem] leading-[1.05] sm:text-5xl">{title}</h2>
+          <h2 className="font-display mt-1 text-[2.4rem] leading-[1.05] sm:text-[3.3rem]">{title}</h2>
+          <span className="mt-6 block h-px w-14 bg-gold-soft/60" aria-hidden="true" />
           <div className="mt-5 max-w-xs text-sm leading-relaxed text-cream-200/85">{children}</div>
           <Link href={href} className="btn btn-light mt-8 self-start">
             {cta} <Icon name="arrowRight" size={15} />
           </Link>
         </div>
-        <div className="relative min-h-[18rem] sm:min-h-[24rem] lg:min-h-[27rem]">{image}</div>
+        <div className="frame-inset relative min-h-[20rem] sm:min-h-[26rem] lg:min-h-[30rem]">{image}</div>
       </div>
     </section>
   );

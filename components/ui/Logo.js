@@ -1,6 +1,6 @@
 import { useId } from "react";
 import Link from "next/link";
-import { STORE_NAME, STORE_TAGLINE } from "@/lib/config";
+import { STORE_NAME, STORE_SHORT_TAGLINE } from "@/lib/config";
 
 /*
  * Decor Dice crest: a crowned lozenge (a die stood on its point) with a back-to-back "DD" monogram
@@ -76,10 +76,10 @@ export default function Logo({ inverted = false, className = "" }) {
       <CrestMark tone={inverted ? "dark" : "light"} className="h-8 w-auto shrink-0 transition-transform duration-500 ease-lux group-hover:-translate-y-0.5 sm:h-11" />
       <span className="flex flex-col leading-none">
         <Wordmark className={`text-[0.92rem] tracking-[0.12em] sm:text-[1.36rem] sm:tracking-[0.26em] ${inverted ? "text-cream-50" : "text-ink"}`} />
-        <span className={`mt-1.5 hidden items-center gap-2 text-[0.5rem] sm:flex tracking-[0.36em] uppercase sm:text-[0.54rem] ${inverted ? "text-gold-soft" : "text-gold-ink"}`}>
-          <span aria-hidden="true" className="h-px w-3 bg-current opacity-60" />
-          {STORE_TAGLINE}
-          <span aria-hidden="true" className="h-px w-3 bg-current opacity-60" />
+        <span className={`mt-2 hidden items-center justify-center gap-2 text-[0.48rem] tracking-[0.42em] uppercase sm:flex ${inverted ? "text-gold-soft" : "text-gold-ink"}`}>
+          <span aria-hidden="true" className="h-px w-4 bg-current opacity-50" />
+          {STORE_SHORT_TAGLINE}
+          <span aria-hidden="true" className="h-px w-4 bg-current opacity-50" />
         </span>
       </span>
     </Link>

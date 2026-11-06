@@ -23,6 +23,7 @@ export default async function Testimonials({ content = null }) {
   return (
     <section className="border-t border-line bg-cream-50 py-14 sm:py-20" aria-labelledby="reviews-title">
       <div className="container-lux">
+        {content?.eyebrow ? <p className="eyebrow eyebrow-rule is-centered mb-3 flex justify-center text-gold-ink">{content.eyebrow}</p> : null}
         <h2 id="reviews-title" className="font-display mb-10 text-center text-3xl sm:text-[2.35rem]" data-reveal>
           {content?.title || "Loved by Our Customers"}
         </h2>

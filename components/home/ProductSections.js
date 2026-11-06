@@ -20,7 +20,7 @@ export async function BestSellers({ content = null }) {
   if (!r?.data?.length) return null;
   return (
     <section className="container-lux py-14 sm:py-20" data-reveal>
-      <SectionHeading title={content?.title || "Best Sellers"} action={<ViewAll href="/shop?sort=popularity" />} />
+      <SectionHeading eyebrow={content?.eyebrow || "Most loved"} title={content?.title || "Best Sellers"} action={<ViewAll href="/shop?sort=popularity" />} />
       <ProductRail products={r.data} label="Best sellers" />
     </section>
   );

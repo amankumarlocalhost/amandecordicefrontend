@@ -17,6 +17,17 @@ export default function MobileNav({ onClose, onSearch, nav = NAV }) {
       <div className="flex justify-center border-b border-line px-5 pt-2 pb-5" onClick={onClose}>
         <Logo />
       </div>
+      {isAuthed ? (
+        <Link href="/account" onClick={onClose} className="mx-5 mt-4 flex items-center gap-3 rounded-[4px] border border-line bg-cream-100 px-4 py-3">
+          <span className="font-display flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-olive-900 text-[1rem] text-cream-50" aria-hidden="true">
+            {(user?.name || "?").trim().charAt(0).toUpperCase()}
+          </span>
+          <span className="min-w-0 flex-1">
+            <span className="display-italic block truncate text-[1.1rem] leading-tight">{(user?.name || "").trim().split(/\s+/)[0]}</span>
+          </span>
+          <Icon name="chevronRight" size={16} className="text-gold-ink" />
+        </Link>
+      ) : null}
       <div className="px-5 py-4">
         <button type="button" onClick={onSearch} className="flex w-full items-center gap-3 border border-line bg-cream-100 px-4 py-3 text-left text-sm text-muted">
           <Icon name="search" size={18} /> Search the store

@@ -77,6 +77,21 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+p {
+  text-wrap: pretty;
+}
+
+/* A barely-visible paper grain over the page, for a tactile, printed feel. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
 ::selection {
   background: var(--olive-800);
   color: var(--cream-50);
@@ -92,7 +107,68 @@ body {
   .font-display {
     font-family: var(--font-serif);
     font-weight: 500;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.012em;
+    font-feature-settings: "liga", "kern", "onum";
+    text-wrap: balance;
+  }
+  /* Editorial accent: an italic serif word or line inside a heading. */
+  .display-italic {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+  }
+  /* Eyebrow with a fine leading rule: — CURATED FOR YOU */
+  .eyebrow-rule {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .eyebrow-rule::before {
+    content: "";
+    width: 2rem;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.55;
+  }
+  .eyebrow-rule.is-centered::after {
+    content: "";
+    width: 2rem;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.55;
+  }
+  /* Hairline divider with a small diamond in the middle. */
+  .ornament {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    color: var(--gold);
+  }
+  .ornament::before,
+  .ornament::after {
+    content: "";
+    height: 1px;
+    flex: 1;
+    background: linear-gradient(90deg, transparent, var(--line) 30%, var(--line) 70%, transparent);
+  }
+  /* Thin inset frame over an image: the "gallery mount" look. */
+  .frame-inset {
+    position: relative;
+  }
+  .frame-inset::after {
+    content: "";
+    position: absolute;
+    inset: 0.75rem;
+    border: 1px solid rgb(255 255 255 / 0.55);
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 1;
+  }
+  @media (min-width: 640px) {
+    .frame-inset::after {
+      inset: 1rem;
+    }
   }
   .eyebrow {
     font-size: 0.6875rem;
@@ -155,6 +231,24 @@ body {
   }
   .btn-primary:hover:not(:disabled) {
     background: var(--olive-700);
+  }
+  /* A slow light sweep across primary buttons on hover. */
+  .btn-primary {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .btn-primary::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(115deg, transparent 30%, rgb(255 255 255 / 0.14) 50%, transparent 70%);
+    transform: translateX(-120%);
+    transition: transform 0.9s var(--ease-lux);
+  }
+  .btn-primary:hover:not(:disabled)::after {
+    transform: translateX(120%);
   }
   .btn-outline {
     border-color: var(--ink);
@@ -374,6 +468,46 @@ body {
   }
 }
 
+@keyframes ken-burns {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes scroll-cue {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  45% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  55% {
+    transform: scaleY(1);
+    transform-origin: bottom;
+  }
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+}
+.animate-ken-burns {
+  animation: ken-burns 14s var(--ease-lux) both;
+}
+.animate-marquee {
+  animation: marquee 48s linear infinite;
+}
+.animate-scroll-cue {
+  animation: scroll-cue 2.4s var(--ease-lux) infinite;
+}
 .animate-fade-up {
   animation: fade-up 0.7s var(--ease-lux) both;
 }
@@ -382,6 +516,15 @@ body {
 }
 .animate-pop-in {
   animation: pop-in 0.25s var(--ease-lux) both;
+}
+.anim-delay-1 {
+  animation-delay: 150ms;
+}
+.anim-delay-2 {
+  animation-delay: 300ms;
+}
+.anim-delay-3 {
+  animation-delay: 500ms;
 }
 
 /* Scroll reveal: elements start visible without JS; RevealObserver adds .reveal-armed only in the browser. */

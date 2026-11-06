@@ -53,6 +53,18 @@ export default function Footer({ content = null, extraLinks = [], shopLinks = nu
   ].filter(Boolean);
   return (
     <footer className="bg-olive-950 text-cream-100">
+      {/* Editorial sign-off */}
+      <div className="border-b border-cream-200/10">
+        <div className="container-lux py-14 text-center sm:py-16">
+          <p className="eyebrow eyebrow-rule is-centered flex justify-center text-gold-soft">{STORE_NAME}</p>
+          <p className="font-display mx-auto mt-5 max-w-3xl text-[2.1rem] leading-[1.08] text-cream-50 sm:text-[3.2rem]">
+            Make every corner <span className="display-italic text-gold-soft">beautiful.</span>
+          </p>
+          <Link href="/shop" className="link-arrow mt-7 text-[0.62rem] text-cream-100 hover:text-cream-50">
+            <span className="border-b border-cream-100/40 pb-0.5">Explore the collection</span> <Icon name="arrowRight" size={14} />
+          </Link>
+        </div>
+      </div>
       <div className={`container-lux grid gap-10 py-14 sm:grid-cols-2 lg:py-16 ${GRID[columns.length] || "lg:grid-cols-[1.4fr_1fr]"}`}>
         <div className="max-w-xs">
           <Logo inverted />

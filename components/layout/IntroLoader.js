@@ -1,4 +1,4 @@
-import { STORE_NAME, STORE_TAGLINE } from "@/lib/config";
+import { STORE_NAME, STORE_SHORT_TAGLINE } from "@/lib/config";
 import { CROWN_PATH, D_PATH, INNER_LOZENGE, OUTER_LOZENGE, PIPS } from "@/components/ui/Logo";
 import IntroController from "./IntroController";
 
@@ -109,7 +109,7 @@ export default function IntroLoader() {
 
           <div className="mt-5 flex items-center gap-3">
             <span className="di-rule block h-px w-10 bg-gradient-to-r from-transparent to-gold sm:w-16" />
-            <p className="di-tag text-[0.6rem] tracking-[0.42em] text-gold-soft uppercase sm:text-[0.66rem]">{STORE_TAGLINE}</p>
+            <p className="di-tag text-[0.6rem] tracking-[0.42em] text-gold-soft uppercase sm:text-[0.66rem]">{STORE_SHORT_TAGLINE}</p>
             <span className="di-rule block h-px w-10 bg-gradient-to-l from-transparent to-gold sm:w-16" />
           </div>
         </div>

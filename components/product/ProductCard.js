@@ -18,13 +18,13 @@ export default function ProductCard({ product, sizes = "(min-width:1280px) 22vw,
 
   return (
     <article className="group relative flex flex-col">
-      <div className={`relative ${aspect} overflow-hidden rounded-[3px] bg-cream-200`}>
+      <div className={`relative ${aspect} overflow-hidden rounded-[5px] bg-cream-200 shadow-[0_1px_0_rgb(0_0_0/0.02)] transition-shadow duration-500 group-hover:shadow-[var(--shadow-card)]`}>
         <Link href={`/products/${p.slug}`} className="absolute inset-0" aria-label={p.name} tabIndex={-1}>
-          <Photo src={p.image?.mediumUrl || p.image?.url} alt={p.image?.alt || p.name} sizes={sizes} preload={preload} className="transition-transform duration-[900ms] ease-[var(--ease-lux)] group-hover:scale-[1.045]" />
+          <Photo src={p.image?.mediumUrl || p.image?.url} alt={p.image?.alt || p.name} sizes={sizes} preload={preload} className="transition-transform duration-[1200ms] ease-[var(--ease-lux)] group-hover:scale-[1.06]" />
         </Link>
         <div className="pointer-events-none absolute top-2.5 left-2.5 flex flex-col gap-1.5">
-          {!p.inStock ? <span className="badge bg-cream-50/95 text-ink-soft">Sold out</span> : null}
-          {p.inStock && p.flags?.newArrival ? <span className="badge bg-cream-50/95 text-olive-900">New</span> : null}
+          {!p.inStock ? <span className="badge bg-cream-50/95 text-ink-soft backdrop-blur-sm">Sold out</span> : null}
+          {p.inStock && p.flags?.newArrival ? <span className="badge border border-gold/40 bg-cream-50/95 text-gold-ink backdrop-blur-sm">New</span> : null}
           {p.inStock && p.discountPercent > 0 ? <span className="badge bg-olive-900 text-cream-50">−{p.discountPercent}%</span> : null}
         </div>
         <button
@@ -52,10 +52,10 @@ export default function ProductCard({ product, sizes = "(min-width:1280px) 22vw,
           </button>
         ) : null}
       </div>
-      <div className="mt-3 flex flex-1 flex-col gap-1">
-        {p.brand ? <p className="eyebrow text-[0.58rem] text-muted">{p.brand}</p> : null}
-        <h3 className="text-[0.84rem] leading-snug text-ink">
-          <Link href={`/products/${p.slug}`} className="hover:underline underline-offset-4">
+      <div className="mt-3.5 flex flex-1 flex-col gap-1">
+        {p.brand ? <p className="eyebrow text-[0.55rem] text-muted">{p.brand}</p> : null}
+        <h3 className="font-display text-[1.02rem] leading-snug text-ink sm:text-[1.08rem]">
+          <Link href={`/products/${p.slug}`} className="transition-colors hover:text-gold-ink">
             {p.name}
           </Link>
         </h3>

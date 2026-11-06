@@ -15,18 +15,17 @@ function items(s) {
   return list;
 }
 
-export function FeatureStripView({ settings }) {
-  const list = items(settings);
+export function FeatureStripView({ settings, content = null }) {
+  // Custom promises from the admin (Landing page → Store promises) replace the built-in list.
+  const list = content?.items?.length ? content.items : items(settings);
   return (
-    <section aria-label="Why shop with us" className="border-y border-line bg-cream-50">
-      <ul className="container-lux grid grid-cols-2 gap-x-4 gap-y-5 py-6 sm:grid-cols-3 lg:flex lg:justify-between lg:py-7">
-        {list.map((f) => (
-          <li key={f.title} className="flex items-center gap-3">
-            <Icon name={f.icon} size={26} strokeWidth={1.2} className="shrink-0 text-olive-800" />
-            <div>
-              <p className="text-[0.72rem] font-medium tracking-wide text-ink">{f.title}</p>
-              <p className="text-[0.68rem] text-muted">{f.text}</p>
-            </div>
+    <section aria-label="Why shop with us" className="border-b border-line bg-cream-50">
+      <ul className="container-lux grid grid-cols-2 gap-y-6 py-7 sm:grid-cols-3 lg:flex lg:justify-center lg:py-9">
+        {list.map((f, i) => (
+          <li key={f.title} className={`flex flex-col items-center gap-2 px-3 text-center lg:flex-1 lg:px-6 ${i > 0 ? "lg:border-l lg:border-line" : ""}`}>
+            <Icon name={f.icon || "diamond"} size={24} strokeWidth={1} className="text-gold-ink" />
+            <p className="eyebrow text-[0.6rem] text-ink">{f.title}</p>
+            <p className="text-[0.72rem] text-muted">{f.text}</p>
           </li>
         ))}
       </ul>
@@ -34,7 +33,7 @@ export function FeatureStripView({ settings }) {
   );
 }
 
-export default async function FeatureStrip() {
-  const s = (await getSettings())?.data;
-  return <FeatureStripView settings={s} />;
+export default async function FeatureStrip({ content = null }) {
+  const s = content?.items?.length ? null : (await getSettings())?.data;
+  return <FeatureStripView settings={s} content={content} />;
 }
